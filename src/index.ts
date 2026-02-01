@@ -6,13 +6,21 @@ const app = express();
 const port = 8000;
 const router = express.Router();
 
-app.use(cors({
-    origin: process.env.FRONTEND_URL,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    credentials: true,
-}))
 
+//setting up the cors
+const frontendUrl = process.env.FRONTEND_URL;
+    if (!frontendUrl) {
+    throw new Error("FRONTEND_URL is required for CORS");
+}
 
+ app.use(cors({
+   origin: frontendUrl,
+     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+     credentials: true,
+ }))
+ 
+
+ //setting up the express json middleware
 app.use(express.json());
 
 app.use('/api/v1/subjects', subjectsRouter);
