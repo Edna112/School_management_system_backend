@@ -8,6 +8,13 @@
       "when": 1769796502341,
       "tag": "0000_talented_johnny_storm",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1770321383227,
+      "tag": "0001_supreme_emma_frost",
+      "breakpoints": true
     }
   ]
 }
