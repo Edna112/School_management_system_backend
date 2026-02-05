@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import subjectsRouter from './routes/subjects';
+import securityMiddleware from './middleware/security';
 
 const app = express();
 const port = 8000;
@@ -22,6 +23,8 @@ const frontendUrl = process.env.FRONTEND_URL;
 
  //setting up the express json middleware
 app.use(express.json());
+
+app.use(securityMiddleware);
 
 app.use('/api/v1/subjects', subjectsRouter);
 
