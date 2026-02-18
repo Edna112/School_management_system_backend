@@ -11,7 +11,7 @@ const securityMiddleware = async (
   if (process.env.NODE_ENV === "test") return next();
   try {
     //define user role
-    const role: RateLimitRole = req.user?.role ?? "guest";
+    const role: RateLimitRole = req.user?.role ?? "teacher";
 
     //request limits fo the various roles
     let limit: number;
